@@ -29,7 +29,7 @@ public class Utilities {
         JSONParser jsonParser = new JSONParser();
         JSONArray data = new JSONArray();
 
-        try (FileReader reader = new FileReader("employees.json"))
+        try (FileReader reader = new FileReader(filePath))
         {
             //Read JSON file
             Object obj = jsonParser.parse(reader);
