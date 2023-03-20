@@ -11,7 +11,7 @@ pipeline {
     choice(
         name: 'browser',
         choices: ['chrome', 'firefox'],
-        description:  'Select browser to run automation - Please don't select firefox - not implement yet')
+        description:  'Select browser to run automation, please select chrome only, not have firefox capabilities yet')
   }
 
   stages {
