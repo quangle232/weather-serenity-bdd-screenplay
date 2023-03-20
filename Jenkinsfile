@@ -44,7 +44,7 @@ pipeline {
       reportName: "Weather Serenity Report",
       reportTitles: "Weather Serenity Report"
       ])
-
+      archiveArtifacts artifacts: 'weather/*.json'
       cleanWs()
     }
   }
