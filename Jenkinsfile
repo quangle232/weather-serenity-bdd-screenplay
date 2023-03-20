@@ -17,7 +17,7 @@ pipeline {
   stages {
     stage('Checkout source code') {
       steps {
-        git(url: 'https://github.com/quangle232/weatherselenium',
+        git(url: 'https://github.com/quangle232/weather-serenity-bdd-screenplay.git',
         branch: 'master',
         credentialsId: '990cc9e7-dc83-4cbf-8259-1fe882167d48')
       }
