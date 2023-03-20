@@ -1,4 +1,4 @@
-package starter;
+package com.weather.ql;
 
 import io.cucumber.junit.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
