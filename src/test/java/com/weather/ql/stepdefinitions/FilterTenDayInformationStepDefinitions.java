@@ -31,15 +31,21 @@ public class FilterTenDayInformationStepDefinitions {
                 NavigateTo.theTenDaysPage());
     }
 
-    @When("{actor} does retrieve weather information for 10 days")
-    public void gavinDoesRetrieveWeatherInformationForDays(Actor actor) {
+    @When("{actor} does retrieve weather information for {int} days and ignore today is {}")
+    public void gavinDoesRetrieveWeatherInformationForDays(Actor actor, int numberOfDay, boolean ignoreToday) {
         EnvironmentVariables objEnvVar = SystemEnvironmentVariables.createEnvironmentVariables();
-        filePath = String.format("weather/weather_info_%s_%s_%s.json",
+        String ignore = "includeToday";
+        if(ignoreToday){
+            ignore = "excludeToday";
+        }
+        filePath = String.format("weather/weather_info_%s_%ddays_%s_%s_%s.json",
                 EnvironmentSpecificConfiguration.from(objEnvVar).getProperty("country"),
+                numberOfDay,
+                ignore,
                 RemoteDriver.of(Serenity.getDriver()).getCapabilities().getBrowserName(),
                 Utilities.getCurrentDateTimeSuffix());
         actor.attemptsTo(
-                GetWeatherInfoToJSonFile.execute(filePath,10));
+                GetWeatherInfoToJSonFile.execute(filePath,numberOfDay, ignoreToday));
     }
 
     @Then("{actor} should check the file exist and is not empty")
