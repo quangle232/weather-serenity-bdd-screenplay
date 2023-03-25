@@ -107,10 +107,6 @@ public class TenDaysPage extends UIInteractions {
         // Start from tomorrow, index from 1 (tomorrow) instead of 0 (today)
 
         // After submitted assignment: refactor to fix no such element: Unable to locate element:[id='detailIndex15']
-        if(numberOfDay >= 14){
-            numberOfDay = 14;
-        }
-
         if(numberOfDay < 0){
             numberOfDay = 0;
         }
@@ -129,10 +125,14 @@ public class TenDaysPage extends UIInteractions {
             }
 
             // Can get 15 days information include today
-            if(numberOfDay < 14){
+            if(numberOfDay <= 15){
                 numberOfDay = numberOfDay - 1;
             }
 
+        }
+
+        if(numberOfDay >= 15){
+            numberOfDay = 14;
         }
 
         for(int i = 1; i <=  numberOfDay; i++){
